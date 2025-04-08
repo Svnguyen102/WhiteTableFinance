@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact - White Table Finance</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f3f2ef;
+      color: #1f1f1f;
+    }
+
+    header {
+      background-color: #ffffff;
+      border-bottom: 2px solid #c5b27e;
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+
+    header a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header img {
+      max-width: 150px;
+    }
+
+    h1 {
+      margin: 0.5rem 0 0;
+      font-size: 2rem;
+      color: #1f1f1f;
+    }
+
+    nav {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      color: #1f1f1f;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav a:hover {
+      border-bottom: 2px solid #c5b27e;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      padding: 0.5rem;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 0.75rem;
+      background-color: #c5b27e;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #a28f63;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: #ffffff;
+      border-top: 2px solid #c5b27e;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html">
+      <img src="WTFlogo.webp" alt="White Table Finance Logo" />
+      <h1>WHITE TABLE FINANCE</h1>
+    </a>
+  </header>
+
+  <nav>
+    <a href="real-estate.html">Real Estate</a>
+    <a href="home-loans.html">Home Loans</a>
+    <a href="tax.html">Tax Services</a>
+    <a href="photography.html">Photography</a>
+    <a href="contact.html">Contact</a>
+    <a href="index.html">Home</a>
+  </nav>
+
+  <main>
+    <h2>Contact Us</h2>
+    <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+
+    <form name="contact" method="POST" data-netlify="true" id="contact-form">
+      <input type="hidden" name="form-name" value="contact" />
+
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </main>
+
+  <footer>
+    &copy; 2025 White Table Finance. All rights reserved.
+  </footer>
+
+  <script>
+    const form = document.getElementById("contact-form");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const encoded = new URLSearchParams(formData).toString();
+
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encoded,
+      });
+
+      window.location.href = "thank-you.html";
+    });
+  </script>
+
+</body>
+</html>
