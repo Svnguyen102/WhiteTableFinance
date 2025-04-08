@@ -64,6 +64,15 @@
       text-decoration: underline;
       color: #c5b27e;
     }
+    /* Make sure this container is styled */
+    #loan-calculator-container {
+      width: 100%;  /* or adjust width */
+      height: 500px; /* Make sure the height is defined */
+      margin: 20px 0;
+      border: 1px solid #ccc;
+      padding: 20px;
+      background-color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -72,7 +81,7 @@
           <img src="WTFlogo.webp" alt="White Table Finance Logo" />
           <h1>WHITE TABLE FINANCE</h1>
         </a>
-      </header>
+    </header>
 
   <nav>
     <a href="real-estate.html">Real Estate</a>
@@ -94,10 +103,10 @@
     </ul>
     <p>Use our calculator to estimate your monthly payments and compare options below:</p>
 
-    <!-- Add Loan Calculator here -->
+    <!-- Loan Calculator Integration -->
     <div id="loan-calculator-container">
-        <!-- Loan Calculator Script will go here -->
-        <script src="LoanCalculator.js"></script> <!-- Make sure LoanCalculator.js is in the correct path -->
+        <!-- The Loan Calculator will render here -->
+        <script src="LoanCalculator.js"></script>
     </div>
 
   </main>
